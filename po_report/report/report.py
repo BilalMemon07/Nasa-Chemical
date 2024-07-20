@@ -80,7 +80,7 @@ class CustomReport(models.AbstractModel):
                     AND po.name = '%s'
                     AND sp.name = '%s'
                     AND am.name = '%s'
-                    AND pr.name = '%s'
+                    AND po.origin = '%s'
                 order by po.name
                 
                 """
