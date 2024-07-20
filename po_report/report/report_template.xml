@@ -24,27 +24,54 @@
                 </div>
                 
                 <div class="page">
-                    
                     <div class="row mt-5 mb-3">
                         <div class="col-12">
-                            <table class="table">
+                            <table class="table-borderless">
                                 <thead>
                                     <tr>
-                                        <!-- <th>S/N</th> -->
-                                        <th>Date</th>
-                                        <th>Item</th>
-                                        <th>Req No</th>
-                                        <th>PO No</th>
-                                        <th>GRN</th>
-                                        <th>Invoice No</th>
-                                        <th>Order Qty</th>
-                                        <th>Rcvd Qty</th>
-                                        <th>Balance Qty</th>
-                                        <th>Unit</th>
-                                        <th>Price</th>
-                                        <th>Amount</th>
-                                        <th>Rcvd Locaion</th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:120px;">
+                                            <b>Date</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:200px;">
+                                            <b>Item</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:120px;">
+                                            <b>Req No</b>
+                                        </th>
                                         
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>PO No</b>
+                                        </th>
+                                        
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>GRN</b>
+                                        </th>
+                                        
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>Invoice No</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>Order Qty</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>Rcvd Qty</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>Balance Qty</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                            <b>Unit</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:120px;">
+                                            <b>Price</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
+                                            <b>Amount</b>
+                                        </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
+                                            <b>Rcvd Locaion</b>
+                                        </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -53,20 +80,24 @@
 
                                         <!-- <td><span t-esc="sn"/></td>
                                         <t t-set="sn" t-value="sn + 1"/> -->
-                                        <td><span t-esc="value['date']"/></td>
-                                        <td><span t-esc="value['item']"/></td>
-                                        <td><span t-esc="value['prno']"/></td>
-                                        <td><span t-esc="value['pono']"/></td>
-                                        <td><span t-esc="value['grn']"/></td>
-                                        <td><span t-esc="value['invoiceno']"/></td>
-                                        <td><span t-esc="value['orderqty']"/></td>
-                                        <td><span t-esc="value['recievedqty']"/></td>
-                                        <td><span t-esc="value['balanceqty']"/></td>
-                                        <td><span t-esc="value['unit']"/></td>
-                                        <td><span t-esc="value['price']"/></td>
-                                        <td><span t-esc="value['amount']"/></td>
+                                        <!-- <td style="text-align:right; font-weight:bold; padding:4px;">
+                                                    <span t-esc="customer_sales_tax_total" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
+                                                </td> -->
+
+                                        <td style="text-align:left;"><span t-esc="value['date']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['item']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['prno']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['pono']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['grn']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['invoiceno']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['orderqty']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['recievedqty']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['balanceqty']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['unit']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['price']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['amount']"/></td>
                                         
-                                        <td><span t-esc="value['location']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['location']"/></td>
                                     </tr>
                                 </tbody>
                             </table>
