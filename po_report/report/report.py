@@ -77,7 +77,6 @@ class CustomReport(models.AbstractModel):
                     AND pt.id in (%s)
                     AND spt.warehouse_id = %s
                     AND po.partner_ref = %s
-                    AND spt.warehouse_id = %s
                     AND po.name = %s
                     AND sp.name = %s
                     AND am.name = %s
