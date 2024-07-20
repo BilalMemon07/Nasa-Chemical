@@ -72,9 +72,8 @@ class CustomReport(models.AbstractModel):
                 inner join stock_picking_type spt on spt.id = po.picking_type_id
                 inner join stock_warehouse sw on sw.id = spt.warehouse_id
                 inner join uom_uom mm on mm.id = pol.product_uom
-                
-                WHERE
-                    WHERE po.date_order BETWEEN '%s' AND '%s'
+                WHERE 
+                    po.date_order BETWEEN '%s' AND '%s'
                     AND pt.id in (%s)
                     AND spt.warehouse_id = %s
                     AND po.partner_ref = %s
@@ -83,9 +82,6 @@ class CustomReport(models.AbstractModel):
                     AND sp.name = %s
                     AND am.name = %s
                     AND pr.name = %s
-                    
-                    
-                 
                 order by po.name
                 
                 """
