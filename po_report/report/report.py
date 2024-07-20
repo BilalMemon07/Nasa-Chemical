@@ -51,7 +51,7 @@ class CustomReport(models.AbstractModel):
                 SELECT 
                     po.date_order AS date,
                     po.partner_ref AS vendor,
-                    pol.name AS item,
+                    pt.name ->> 'en_US' AS item,
                     po.origin as prno,
                     po.name AS pono,
                     sp.name AS grn,
@@ -59,7 +59,7 @@ class CustomReport(models.AbstractModel):
                     pol.product_qty AS orderqty,
                     pol.qty_received AS recievedqty,
                     (pol.product_qty - pol.qty_invoiced) AS balanceqty,
-                    mm.name ->> 'en_US'  AS unit,
+                    mm.name ->> 'en_US' AS unit,
                     pol.price_unit AS price, 
                     pol.price_total AS amount,
                     sw.name as location
