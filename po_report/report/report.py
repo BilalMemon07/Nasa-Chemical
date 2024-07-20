@@ -76,11 +76,11 @@ class CustomReport(models.AbstractModel):
                     po.date_order BETWEEN '%s' AND '%s'
                     AND pt.id in (%s)
                     AND spt.warehouse_id = %s
-                    AND po.partner_ref = %s
-                    AND po.name = %s
-                    AND sp.name = %s
-                    AND am.name = %s
-                    AND pr.name = %s
+                    AND po.partner_ref = '%s'
+                    AND po.name = '%s'
+                    AND sp.name = '%s'
+                    AND am.name = '%s'
+                    AND pr.name = '%s'
                 order by po.name
                 
                 """
