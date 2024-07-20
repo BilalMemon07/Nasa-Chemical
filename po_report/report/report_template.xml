@@ -53,7 +53,7 @@
 
                                         <!-- <td><span t-esc="sn"/></td>
                                         <t t-set="sn" t-value="sn + 1"/> -->
-                                        <td><span t-esc="value['Date']"/></td>
+                                        <td><span t-field="value['Date']"/></td>
                                         <td><span t-esc="value['Item']"/></td>
                                         <td><span t-esc="value['ReqNo']"/></td>
                                         <td><span t-esc="value['PONo']"/></td>
