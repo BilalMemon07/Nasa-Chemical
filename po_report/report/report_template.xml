@@ -21,9 +21,8 @@
                             <!-- </t> -->
                         </div>
                     </div>
-            </div>
-
-            <!-- <t t-call="web.external_layout"> -->
+                </div>
+                
                 <div class="page">
                     
                     <div class="row mt-5 mb-3">
@@ -31,7 +30,7 @@
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th>S/N</th>
+                                        <!-- <th>S/N</th> -->
                                         <th>Date</th>
                                         <th>Item</th>
                                         <th>Req No</th>
@@ -49,11 +48,11 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <t t-set="sn" t-value="1"/>
+                                <!-- <t t-set="sn" t-value="1"/> -->
                                     <tr t-foreach="data" t-as="value">
 
-                                        <td><span t-esc="sn"/></td>
-                                        <t t-set="sn" t-value="sn + 1"/>
+                                        <!-- <td><span t-esc="sn"/></td>
+                                        <t t-set="sn" t-value="sn + 1"/> -->
                                         <td><span t-esc="value['Date']"/></td>
                                         <td><span t-esc="value['Item']"/></td>
                                         <td><span t-esc="value['ReqNo']"/></td>
