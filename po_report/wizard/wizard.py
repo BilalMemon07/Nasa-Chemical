@@ -28,7 +28,7 @@ class POReportWizard(models.TransientModel):
             'date_from': self.date_from,
             'date_to': self.date_to,
             'product_ids': product_ids,
-            'warehosue_id': self.warehouse_id.id,
+            'warehouse_id': self.warehouse_id.id,
             'vendor': self.vendor,
             'po_no': self.po_no,
             'grn': self.grn,
