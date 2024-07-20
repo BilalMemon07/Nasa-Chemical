@@ -6,19 +6,19 @@
                 <div class="header">
                     <div class="row">
                         <div class="row text-center">
-                            <h2>NASA CHEMICALS</h2>
+                            <h1>NASA CHEMICALS</h1>
                                 <br/>
-                            <h2>Purchase Order - Report</h2>
-                            <!-- <t t-if="other['from_date']"> -->
+                            <h1>Purchase Order - Report</h1>
+                            <t t-if="other['from_date']">
                                     <b>From :</b>
-                                    <!-- <t t-esc="other['from_date']" /> -->
-                            <!-- </t> -->
+                                    <t t-esc="other['from_date']" />
+                            </t>
                             <br />
-                            <!-- <t t-if="other['to_date']"> -->
+                            <t t-if="other['to_date']">
                                 <b>To :</b>
 
-                                <!-- <t t-esc="other['to_date']" /> -->
-                            <!-- </t> -->
+                                <t t-esc="other['to_date']" />
+                            </t>
                         </div>
                     </div>
                 </div>
