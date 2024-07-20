@@ -55,7 +55,7 @@
                                         <t t-set="sn" t-value="sn + 1"/> -->
                                         <td><span t-esc="value['date']"/></td>
                                         <td><span t-esc="value['item']"/></td>
-                                        <td><span t-esc="value['reqno']"/></td>
+                                        <td><span t-esc="value['prno']"/></td>
                                         <td><span t-esc="value['pono']"/></td>
                                         <td><span t-esc="value['grn']"/></td>
                                         <td><span t-esc="value['invoiceno']"/></td>

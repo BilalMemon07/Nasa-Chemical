@@ -6,13 +6,19 @@
         <field name="arch" type="xml">
             <form string="Purchase Order Report">
                 <group>
-                   <!-- <group>
-                        <field name="ending_date"/>
-                        <field name="ending_balance"/>
+                   <group>
+                        <field name="date_from"/>
+                        <field name="date_to"/>
+                        <field name="dateproduct_ids"/>
+                        <field name="warehouse_id"/>
+                        <field name="vendor"/>
                     </group>
                    <group>
-                        <field name="bank"/>
-                    </group> -->
+                        <field name="po_no"/>
+                        <field name="grn"/>
+                        <field name="invoice_no"/>
+                        <field name="pr_no"/>
+                    </group>
                 </group>
                 <footer>
                     <button name="print_report" type="object" string="Print" class="oe_highlight"/>
