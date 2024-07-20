@@ -54,19 +54,19 @@
                                         <!-- <td><span t-esc="sn"/></td>
                                         <t t-set="sn" t-value="sn + 1"/> -->
                                         <td><span t-esc="value['date']"/></td>
-                                        <td><span t-esc="value['Item']"/></td>
-                                        <td><span t-esc="value['ReqNo']"/></td>
-                                        <td><span t-esc="value['PONo']"/></td>
-                                        <td><span t-esc="value['GRN']"/></td>
-                                        <td><span t-esc="value['InvoiceNo']"/></td>
-                                        <td><span t-esc="value['Orderqty']"/></td>
-                                        <td><span t-esc="value['Recievedqty']"/></td>
-                                        <td><span t-esc="value['Balanceqty']"/></td>
-                                        <td><span t-esc="value['Unit']"/></td>
-                                        <td><span t-esc="value['Price']"/></td>
-                                        <td><span t-esc="value['Amount']"/></td>
+                                        <td><span t-esc="value['item']"/></td>
+                                        <td><span t-esc="value['reqno']"/></td>
+                                        <td><span t-esc="value['pono']"/></td>
+                                        <td><span t-esc="value['grn']"/></td>
+                                        <td><span t-esc="value['invoiceno']"/></td>
+                                        <td><span t-esc="value['orderqty']"/></td>
+                                        <td><span t-esc="value['recievedqty']"/></td>
+                                        <td><span t-esc="value['balanceqty']"/></td>
+                                        <td><span t-esc="value['unit']"/></td>
+                                        <td><span t-esc="value['price']"/></td>
+                                        <td><span t-esc="value['amount']"/></td>
                                         
-                                        <td><span t-esc="value['Location']"/></td>
+                                        <td><span t-esc="value['location']"/></td>
                                     </tr>
                                 </tbody>
                             </table>
