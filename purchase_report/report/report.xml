@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="purchase_report_pdf" model="ir.actions.report">
+        <field name="name">Purchase Report</field>
+        <field name="model">purchase.report</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">purchase_report.purchase_reports</field>
+        <field name="report_file">purchase_report.purchase_reports</field>
+    </record>
+</odoo>

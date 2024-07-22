@@ -1,21 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="po_analysis_wizard" model="ir.ui.view">
+    <record id="purchase_report_wizard" model="ir.ui.view">
         <field name="name">Purchase Order Analysis Report</field>
-        <field name="model">po.analysis</field>
+        <field name="model">purchase.report</field>
         <field name="arch" type="xml">
-            <form string="Purchase Order Analysis Report">
+            <form string="Purchase Report">
                 <group>
                    <group>
                         <field name="date_from"/>
                         <field name="date_to"/>
                         <field name="product_ids" widget="many2many_tags"/>
-                        <field name="warehouse_id" widget="many2one_tags"/>
+                        
+                        <field name="vendor"/>
                     </group>
                    <group>
-                        <field name="vendor"/>
                         <field name="po_no"/>
                         <field name="grn"/>
+                        <field name="invoice_no"/>
+                        
                     </group>
                 </group>
                 <footer>
@@ -27,16 +29,16 @@
     </record>
 
 
-    <record id="po_analysis_action" model="ir.actions.act_window">
-        <field name="name">Purchase Order Analysis Report</field>
-        <field name="res_model">po.analysis</field>
+    <record id="purchase_report_action" model="ir.actions.act_window">
+        <field name="name">Purchase Report</field>
+        <field name="res_model">purchase.report</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
 
-    <menuitem id="po_analysis_id"
+    <menuitem id="purchase_report_id"
               name="Purchase Order Analysis Report"
               parent="account.menu_finance_reports"
-              action="po_analysis_action"
+              action="purchase_report_action"
     />
 </odoo>
