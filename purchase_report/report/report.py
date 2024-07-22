@@ -4,8 +4,8 @@ from odoo import _, api, fields, models
 
 
 class CustomReport(models.AbstractModel):
-    _name = "report.purchase_report.purchase_reports"
-    _description = "Purchase Order Report"
+    _name = "report.purchase_manualreport.purchase_manualreports"
+    _description = "Purchase Report"
 
 
     def _get_report_values(self, docids, data=None):

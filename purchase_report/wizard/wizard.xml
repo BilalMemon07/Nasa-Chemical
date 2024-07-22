@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <record id="purchase_report_wizard" model="ir.ui.view">
-        <field name="name">Purchase Order Analysis Report</field>
-        <field name="model">purchase.report</field>
+    <record id="purchase_manualreport_wizard" model="ir.ui.view">
+        <field name="name">Purchase Report</field>
+        <field name="model">purchase.manualreport</field>
         <field name="arch" type="xml">
             <form string="Purchase Report">
                 <group>
@@ -29,16 +29,16 @@
     </record>
 
 
-    <record id="purchase_report_action" model="ir.actions.act_window">
+    <record id="purchase_manualreport_action" model="ir.actions.act_window">
         <field name="name">Purchase Report</field>
-        <field name="res_model">purchase.report</field>
+        <field name="res_model">purchase.manualreport</field>
         <field name="view_mode">form</field>
         <field name="target">new</field>
     </record>
 
-    <menuitem id="purchase_report_id"
-              name="Purchase Order Analysis Report"
+    <menuitem id="purchase_manualreport_id"
+              name="Purchase Report"
               parent="account.menu_finance_reports"
-              action="purchase_report_action"
+              action="purchase_manualreport_action"
     />
 </odoo>

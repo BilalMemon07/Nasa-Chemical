@@ -2,7 +2,7 @@ from odoo import _, api, fields, models
 
 
 class PurchaseReportWizard(models.TransientModel):
-    _name = 'purchase.report'
+    _name = 'purchase.manualreport'
     _description = 'Purchase Report'
     
     date_from = fields.Date(string='From Date', required=True)
@@ -32,4 +32,4 @@ class PurchaseReportWizard(models.TransientModel):
             'invoice_no': self.invoice_no
             }
 
-        return self.env.ref('purchase_report.purchase_report_pdf').with_context(landscape=True).report_action(self, data=data)
+        return self.env.ref('purchase_manualreport.purchase_manualreport_pdf').with_context(landscape=True).report_action(self, data=data)
