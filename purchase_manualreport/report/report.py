@@ -23,7 +23,7 @@ class CustomReport(models.AbstractModel):
         date_from = data['date_from']
         date_to = data['date_to']
         product_ids = data['product_ids']
-        # vendor_ids = data['vendor_ids']
+        vendor_ids = data['vendor_ids']
         po_no = data['po_no']
         grn = data['grn']
         invoice_no = data['invoice_no']
@@ -33,7 +33,7 @@ class CustomReport(models.AbstractModel):
                 'from_date': date_from,
                 'to_date': date_to,
                 'product_ids': product_ids,
-                # 'vendor_ids': vendor_ids,
+                'vendor_ids': vendor_ids,
                 'po_no': po_no,
                 'grn': grn,
                 'invoice_no':invoice_no,
