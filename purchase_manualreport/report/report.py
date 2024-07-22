@@ -83,8 +83,7 @@ class CustomReport(models.AbstractModel):
                 """
         
         % (date_from, date_to,product_ids_str, vendor_ids_str, po_no, grn, invoice_no) )
-        #  % (date_from,date_to)
-# ,category_ids,stock_location_id
+
         cr.execute(query)
         data = cr.dictfetchall()
 
