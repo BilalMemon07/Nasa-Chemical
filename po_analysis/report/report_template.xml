@@ -54,14 +54,14 @@
                                     </tr>
 
                                     <tr>
-                                        <td colspan="3" class="total-cell" style="text-align:right; padding:4px;">
-                                            Totals
-                                        </td>
-                                        <td class="total-cell" style="text-align:center; padding:4px;">
-                                            <span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
+                                        <td colspan="2" class="total-cell" style="text-align:right; padding:4px;">
+                                            <b>Totals</b>
                                         </td>
                                         <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
+                                            <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                         </td>
                                     </tr>
 
