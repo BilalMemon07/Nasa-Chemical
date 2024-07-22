@@ -1,5 +1,5 @@
 {
-    'name': 'Purchase Report',
+    'name': 'Purchase Order Report',
     'version': '17.0.1.0.0',
 
     'depends': ['base', 'purchase'],
