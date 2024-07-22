@@ -11,7 +11,7 @@
                         <field name="date_to"/>
                         <field name="product_ids" widget="many2many_tags"/>
                         
-                        <field name="vendor" widget="many2many_tags"/>
+                        <field name="party_ids" widget="many2many_tags"/>
                     </group>
                    <group>
                         <field name="po_no"/>
