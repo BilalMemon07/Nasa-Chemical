@@ -50,6 +50,9 @@
                                         <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
                                             <b>Invoice No</b>
                                         </th>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
+                                            <b>Rcvd Locaion</b>
+                                        </th>
                                         <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
                                             <b>Order Qty</b>
                                         </th>
@@ -68,21 +71,11 @@
                                         <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
                                             <b>Amount</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
-                                            <b>Rcvd Locaion</b>
-                                        </th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
-                                <!-- <t t-set="sn" t-value="1"/> -->
                                     <tr t-foreach="data" t-as="value">
-
-                                        <!-- <td><span t-esc="sn"/></td>
-                                        <t t-set="sn" t-value="sn + 1"/> -->
-                                        <!-- <td style="text-align:right; font-weight:bold; padding:4px;">
-                                                    <span t-esc="customer_sales_tax_total" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
-                                                </td> -->
 
                                         <td style="text-align:left;"><span t-esc="value['date']"/></td>
                                         <td style="text-align:left;"><span t-esc="value['item']"/></td>
@@ -90,6 +83,7 @@
                                         <td style="text-align:left;"><span t-esc="value['pono']"/></td>
                                         <td style="text-align:left;"><span t-esc="value['grn']"/></td>
                                         <td style="text-align:left;"><span t-esc="value['invoiceno']"/></td>
+                                        <td style="text-align:left;"><span t-esc="value['location']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['orderqty']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['recievedqty']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['balanceqty']"/></td>
@@ -97,7 +91,26 @@
                                         <td style="text-align:right;"><span t-esc="value['price']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['amount']"/></td>
                                         
-                                        <td style="text-align:left;"><span t-esc="value['location']"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="9" class="total-cell" style="text-align:right; padding:4px;">
+                                            <b>Totals</b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_orderqty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_recievedqty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_balanceqty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_price']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
+                                        <td class="total-cell" style="text-align:right; padding:4px;">
+                                            <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>

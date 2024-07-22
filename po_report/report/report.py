@@ -24,7 +24,7 @@ class CustomReport(models.AbstractModel):
         date_to = data['date_to']
         product_ids = data['product_ids']
         warehouse_id = data['warehouse_id']
-        vendor = data['vendor']
+        vendor_ids = data['vendor_ids']
         po_no = data['po_no']
         grn = data['grn']
         invoice_no = data['invoice_no']
@@ -36,7 +36,7 @@ class CustomReport(models.AbstractModel):
                 'to_date': date_to,
                 'product_ids': product_ids,
                 'warehouse_id': warehouse_id,
-                'vendor': vendor,
+                'vendor_ids': vendor_ids,
                 'po_no': po_no,
                 'grn': grn,
                 'invoice_no': invoice_no,
@@ -45,12 +45,14 @@ class CustomReport(models.AbstractModel):
         
         if product_ids != []:
             product_ids_str = ','.join(map(str,product_ids))
+        if vendor_ids != []:
+            vendor_ids_str = ','.join(map(str,vendor_ids))
 
         cr = self._cr
         query = ("""
                 SELECT 
                     po.date_order AS date,
-                    po.partner_ref AS vendor,
+                    rs.name AS vendor,
                     pt.name ->> 'en_US' AS item,
                     po.origin as prno,
                     po.name AS pono,
@@ -67,6 +69,7 @@ class CustomReport(models.AbstractModel):
                 INNER JOIN purchase_order po ON po.id = pol.order_id
                 inner JOIN product_product pp ON pp.id = pol.product_id
                 inner JOIN product_template pt ON pt.id = pp.product_tmpl_id
+                inner join res_partner rs on rs.id = po.partner_id 
                 Left JOIN stock_picking sp ON sp.origin = po.name   
                 Left JOIN account_move am ON am.invoice_origin = po.name
                 inner join stock_picking_type spt on spt.id = po.picking_type_id
@@ -76,7 +79,7 @@ class CustomReport(models.AbstractModel):
                     po.date_order BETWEEN '%s' AND '%s'
                     AND pt.id in (%s)
                     AND spt.warehouse_id = %s
-                    AND po.partner_ref = '%s'
+                    AND rs.id in (%s)
                     AND po.name = '%s'
                     AND sp.name = '%s'
                     AND am.name = '%s'
@@ -85,15 +88,26 @@ class CustomReport(models.AbstractModel):
                 
                 """
         
-        % (date_from, date_to,product_ids_str,warehouse_id, vendor, po_no, grn, invoice_no, pr_no) )
+        % (date_from, date_to,product_ids_str,warehouse_id, vendor_ids_str, po_no, grn, invoice_no, pr_no) )
         #  % (date_from,date_to)
 # ,category_ids,stock_location_id
         cr.execute(query)
         data = cr.dictfetchall()
 
+        totals = {
+            'total_orderqty': sum(item['orderqty'] for item in data),
+            'total_recievedqty': sum(item['recievedqty'] for item in data),
+            'total_balanceqty': sum(item['balanceqty'] for item in data),
+            'total_price': sum(item['price'] for item in data),
+            
+            'total_amount': sum(item['amount'] for item in data),
+        }
+
+
         return {
             'doc_ids': docids,
             'data': data,
+            'totals':totals,
             'other': other_details,
         }
 
