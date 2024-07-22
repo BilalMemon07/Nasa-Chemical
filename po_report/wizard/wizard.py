@@ -33,7 +33,7 @@ class POReportWizard(models.TransientModel):
             'date_to': self.date_to,
             'product_ids': product_ids,
             'warehouse_id': self.warehouse_id.id,
-            'vendor': self.vendor,
+            'vendor_ids': vendor_ids,
             'po_no': self.po_no,
             'grn': self.grn,
             'invoice_no': self.invoice_no,
