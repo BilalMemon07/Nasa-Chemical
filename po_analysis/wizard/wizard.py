@@ -24,7 +24,7 @@ class POReportWizard(models.TransientModel):
         
         vendor_ids = []
         if self.vendor_ids:
-            for id in self.venodr_ids:
+            for id in self.vendor_ids:
                 vendor_ids.append(id.id)
     
         data = {
