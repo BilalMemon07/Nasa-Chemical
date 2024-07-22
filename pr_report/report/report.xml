@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="pr_report_pdf" model="ir.actions.report">
-        <field name="name">Purchase Report</field>
+        <field name="name">Party Wise Purchase Report</field>
         <field name="model">pr.report</field>
         <field name="report_type">qweb-pdf</field>
         <field name="report_name">pr_report.pr_reports</field>
