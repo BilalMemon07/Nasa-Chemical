@@ -49,7 +49,7 @@ class CustomReport(models.AbstractModel):
                     pt.name ->> 'en_US' as item,
                     mm.name ->> 'en_US'  AS Unit,
                     pol.product_qty AS qty,  
-                    pol.price_subtotal AS Amount
+                    pol.price_subtotal AS amount
 
                     FROM purchase_order_line pol 
                     INNER JOIN purchase_order po ON po.id = pol.order_id
@@ -80,8 +80,8 @@ class CustomReport(models.AbstractModel):
         data = cr.dictfetchall()
 
         totals = {
-            'qty': sum(item['qty'] for item in data),
-            'Amount': sum(item['Amount'] for item in data),
+            'total_qty': sum(item['qty'] for item in data),
+            'total_amount': sum(item['amount'] for item in data),
         }
 
         return {

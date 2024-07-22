@@ -58,10 +58,10 @@
                                             Totals
                                         </td>
                                         <td class="total-cell" style="text-align:center; padding:4px;">
-                                            <span t-esc="totals['qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
+                                            <span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
                                         </td>
                                         <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <span t-esc="totals['amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
+                                            <span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/>
                                         </td>
                                     </tr>
 
