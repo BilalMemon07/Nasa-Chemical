@@ -4,7 +4,7 @@ from odoo import _, api, fields, models
 
 
 class CustomReport(models.AbstractModel):
-    _name = "report.purchase_manualreport.purchase_manualreports"
+    _name = "report.pr_report.pr_reports"
     _description = "Purchase Report"
 
 
@@ -15,7 +15,7 @@ class CustomReport(models.AbstractModel):
         date_from = data['date_from']
         date_to = data['date_to']
         product_ids = data['product_ids']
-        vendor_ids = data['vendor_ids']
+        party_ids = data['party_ids']
         po_no = data['po_no']
         grn = data['grn']
         invoice_no = data['invoice_no']
@@ -25,7 +25,7 @@ class CustomReport(models.AbstractModel):
                 'from_date': date_from,
                 'to_date': date_to,
                 'product_ids': product_ids,
-                'vendor_ids': vendor_ids,
+                'party_ids': party_ids,
                 'po_no': po_no,
                 'grn': grn,
                 'invoice_no':invoice_no,
@@ -33,19 +33,19 @@ class CustomReport(models.AbstractModel):
         
         if product_ids != []:
             product_ids_str = ','.join(map(str,product_ids))
-        if vendor_ids != []:
-            vendor_ids_str = ','.join(map(str,vendor_ids))
+        if party_ids != []:
+            party_ids_str = ','.join(map(str,party_ids))
 
         cr = self._cr
         query = ("""
                 SELECT 
-                    po.date_order AS Date,
-                    rs.name as vendor,                    
+                    po.date_order AS Date,                    
                     pt.name ->> 'en_US' as item,
+                    po.origin as reqno,
                     po.name AS PONo,
                     sp.name AS GRN,
                     am.name AS InvoiceNo,
-                    sw.name as Location,
+
                     pol.product_qty AS qty,
                     mm.name ->> 'en_US'  AS Unit,
                     pol.price_unit AS price, 
@@ -68,13 +68,11 @@ class CustomReport(models.AbstractModel):
                     AND po.name = '%s'
                     AND sp.name = '%s'
                     AND am.name = '%s'
-                  
-
                 order by po.name
                 
                 """
         
-        % (date_from, date_to,product_ids_str, vendor_ids_str, po_no, grn, invoice_no) )
+        % (date_from, date_to,product_ids_str, party_ids_str, po_no, grn, invoice_no) )
 
         cr.execute(query)
         data = cr.dictfetchall()
