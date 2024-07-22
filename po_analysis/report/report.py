@@ -49,7 +49,7 @@ class CustomReport(models.AbstractModel):
                     pt.name ->> 'en_US' as item,
                     mm.name ->> 'en_US'  AS Unit,
                     pol.product_qty AS qty,  
-                    pol.price_subtotal AS Amount,
+                    pol.price_subtotal AS Amount
 
                     FROM purchase_order_line pol 
                     INNER JOIN purchase_order po ON po.id = pol.order_id
