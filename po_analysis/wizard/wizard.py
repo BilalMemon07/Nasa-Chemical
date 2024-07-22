@@ -9,7 +9,7 @@ class POReportWizard(models.TransientModel):
     date_to = fields.Date(string='To Date', required=True)
     product_ids = fields.Many2many('product.template', string='Product', required=True)
     warehouse_id = fields.Many2one('stock.warehouse', string = "Ware House", required=True)
-    vendor = fields.Char(string = "Vendor", required=True)
+    vendor_ids = fields.Many2many('res.partner', string='Vendor', required=True)
     po_no = fields.Char(string = "po_no", required=True)
     grn = fields.Char(string = "grn", required=True)
     
@@ -22,12 +22,17 @@ class POReportWizard(models.TransientModel):
             for id in self.product_ids:
                 product_ids.append(id.id)
         
+        vendor_ids = []
+        if self.vendor_ids:
+            for id in self.venodr_ids:
+                vendor_ids.append(id.id)
+    
         data = {
             'date_from': self.date_from,
             'date_to': self.date_to,
             'product_ids': product_ids,
             'warehouse_id': self.warehouse_id.id,
-            'vendor': self.vendor,
+            'vendor_ids': vendor_ids,
             'po_no': self.po_no,
             'grn': self.grn
             }
