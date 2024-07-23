@@ -73,23 +73,23 @@
                                         <td style="text-align:left;"><span t-esc="value['duedate']"/></td>
                                         <td style="text-align:left;"><span t-esc="value['duedays']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['poamount']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['adamount']"/></td>
+                                        <td style="text-align:right;"><span t-esc="value['advamount']"/></td>
                                         <td style="text-align:right;"><span t-esc="value['pendamount']"/></td>
                                         
                                     </tr>
                                     
                                     <tr>
-                                        <td colspan="7" class="total-cell" style="text-align:right; padding:4px;">
+                                        <td colspan="5" class="total-cell" style="text-align:right; padding:4px;">
                                             <b>Totals</b>
                                         </td>
                                         <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                            <b><span t-esc="totals['total_poamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                         </td>
                                         <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_price']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                            <b><span t-esc="totals['total_advamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                         </td>
                                         <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                            <b><span t-esc="totals['total_pendamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                         </td>
                                     </tr>
 
