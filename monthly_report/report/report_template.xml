@@ -56,23 +56,7 @@
                                     <th style="text-align:left;border-bottom:1px solid black;padding:10px;width:150px;">Amount</th>
                                 </tr>
                             </thead>
-                            <thead>
-                                <tr>
-                                    <th style="text-align:left;border-bottom:1px solid black;padding:10px;width:200px;">
-                                        <b>Item</b>
-                                    </th>
-                                    <th style="text-align:left;border-bottom:1px solid black;padding:10px;width:100px;">
-                                        <b>Unit</b>
-                                    </th>
-                                    <th style="text-align:left;border-bottom:1px solid black;padding:10px;width:120px;">
-                                        <b>Purc. Qty.</b>
-                                    </th>
-                                    <th style="text-align:left;border-bottom:1px solid black;padding:10px;width:150px;">
-                                        <b>Purc. Amt.</b>
-                                    </th>
-
-                                </tr>
-                            </thead>
+                            
                             <tbody>
                             
                                 <tr t-foreach="data" t-as="value">
