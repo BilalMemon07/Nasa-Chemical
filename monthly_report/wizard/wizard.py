@@ -33,4 +33,4 @@ class POReportWizard(models.TransientModel):
             
             }
 
-        return self.env.ref('monthly.report.monthly.report_pdf').with_context(landscape=True).report_action(self, data=data)
+        return self.env.ref('monthly_report.monthly_report_pdf').with_context(landscape=True).report_action(self, data=data)

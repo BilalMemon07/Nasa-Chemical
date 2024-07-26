@@ -4,7 +4,7 @@ from odoo import _, api, fields, models
 
 
 class CustomReport(models.AbstractModel):
-    _name = "report.monthly.report.monthly.reports"
+    _name = "report.monthly_report.monthly_reports"
     _description = "Purchase Order Month Wise Report"
 
 
