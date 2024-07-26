@@ -85,11 +85,11 @@
                                     </td>
                                     
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty_jul']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_jul']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
