@@ -5,7 +5,7 @@
 
             <div class="header">
                 <div class="row">
-                    <div class="row text-left">
+                    <div class="row text-center">
                         <h1>NASA CHEMICALS</h1>
                             <br/>
                         <h1>Purchase Order - Report</h1>
@@ -93,60 +93,55 @@
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty_aug']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_aug']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty_sep']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_sep']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty_oct']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_oct']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty_nov']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_nov']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+
+                                        <b><span t-esc="totals['total_qty_dec']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount_dec']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
                                     <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
+                                        <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
                                     </td>
 
-                                    <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
-                                    </td>
-
-                                    <td class="total-cell" style="text-align:right; padding:4px;">
-                                        <!-- <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b> -->
-                                    </td>
+                                    
                                 </tr>
 
                                 
