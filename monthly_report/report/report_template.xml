@@ -75,8 +75,7 @@
                                     <td style="text-align:right;"><span t-esc="value['qty_dec']"/></td>
                                     <td style="text-align:right;"><span t-esc="value['amount_dec']"/></td>
                                     <td style="text-align:right;"><span t-esc="value['qty']"/></td>
-                                    <td style="text-align:right;"><span t-esc="value['amount']"/></td>
-                                    
+                                    <td style="text-align:right;"><span t-esc="value['amount']"/></td>                                    
                                 </tr>
 
                                 <tr>
