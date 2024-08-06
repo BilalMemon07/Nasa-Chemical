@@ -7,7 +7,6 @@
             <field name="model">product.category</field>
             <field name="inherit_id" ref="product.product_category_form_view"/>
             <field name="arch" type="xml">
-            
                 <field name="parent_id" position="after">
                     <field name="company_id" widget="many2one_tags"/>
                 </field>
