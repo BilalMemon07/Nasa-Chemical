@@ -21,7 +21,7 @@
             <field name="inherit_id" ref="base.view_partner_form"/>
             <field name="arch" type="xml">
                 <field name="phone" position="after">
-                    <field name="strn"/>
+                    <field name="strn_no"/>
                 </field>
                 <field name="phone" position="after">
                     <field name="cnic_no"/>
