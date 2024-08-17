@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="res_partner_inherited_form" model="ir.ui.view">
+            <field name="name">res.partner.inherited.form</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <field name="category_id" position="after">
+                    <field name="vendor_status"/>
+                    <field name="strn_no"/>
+                    <field name="legal_status"/>
+                    <field name="company_reg"/>
+                    <field name="artical"/>
+                    <field name="cnic_no"/>
+
+                </field>
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="string">NTN</attribute>
+                </xpath>
+                
+
+            </field>
+        </record>
+
+  </data>
+</odoo>
+    

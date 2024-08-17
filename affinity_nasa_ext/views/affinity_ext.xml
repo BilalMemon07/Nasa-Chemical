@@ -12,30 +12,6 @@
                 </field>
             </field>
         </record>
-
-        <!--  -->
-
-        <record id="res_partner_inherited_form" model="ir.ui.view">
-            <field name="name">res.partner.inherited.form</field>
-            <field name="model">res.partner</field>
-            <field name="inherit_id" ref="base.view_partner_form"/>
-            <field name="arch" type="xml">
-                <field name="phone" position="after">
-                    <field name="strn_no"/>
-                </field>
-                <field name="phone" position="after">
-                    <field name="cnic_no"/>
-                </field>
-
-                <field name="mobile" position="after">
-                    <field name="legal_status"/>
-                    <field name="company_reg"/>
-                    <field name="artical"/>
-                </field>
-
-            </field>
-        </record>
-
   </data>
 </odoo>
     
