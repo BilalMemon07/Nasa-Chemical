@@ -14,8 +14,8 @@ class PurchaseRerquestLineInherited(models.Model):
 
     
 
-@api.depends('product_id')
-def _compute_stock_level(self):
-    for rec in self:
-        order = self.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id)])
-        rec['minimum_stock_level'] = order.product_min_qty
+    @api.depends('product_id')
+    def _compute_stock_level(self):
+        for rec in self:
+            order = self.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id)])
+            rec['minimum_stock_level'] = order.product_min_qty
