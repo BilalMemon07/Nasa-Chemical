@@ -11,7 +11,7 @@ class PurchaseRerquestLineInherited(models.Model):
 
     minimum_stock_level = fields.Char('Minimum Stock Level')
     forcasting_stock = fields.Char('Forcasting Stock')
-    date_due = fields.Datetime('Date Due')
+    date_due = fields.Datetime('Date Due', required = True)
 
     
 
