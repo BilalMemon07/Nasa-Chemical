@@ -10,4 +10,4 @@ class ResPartnerInherited(models.Model):
     strn_no = fields.Char("STRN", required = True)
     cnic_no = fields.Char("CNIC Number", required = True)
     vendor_status = fields.Selection([('active', 'Active'), ('non_active', 'Non Active')], string = "Vendor Status")
-    
+    major_client = fields.Selection([('a','A Category'), ('b', 'B Category'), ('c', 'C Category')]) 
