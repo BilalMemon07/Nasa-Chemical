@@ -12,9 +12,9 @@ class ResPartnerInherited(models.Model):
     vendor_status = fields.Selection([('active', 'Active'), ('non_active', 'Non Active')], string = "Vendor Status")
     major_client = fields.Selection([('a','A Category'), ('b', 'B Category'), ('c', 'C Category')]) 
 
-# class ResPartnerBankInherited(models.Model):
+class ResPartnerBankInherited(models.Model):
     
-#     _inherit = "res.partner.bank"
+    _inherit = "res.partner.bank"
     
-#     bank_iban_num = fields.Char('IBAN Number')
+    bank_iban_num = fields.Char('IBAN Number')
     
