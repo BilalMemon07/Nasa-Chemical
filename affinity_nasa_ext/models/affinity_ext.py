@@ -1,4 +1,5 @@
 from odoo import fields, models, api
+from odoo.exceptions import UserError
 
 class ProductCategoryInherited(models.Model):
     _inherit = 'product.category'
@@ -18,4 +19,5 @@ class PurchaseRerquestLineInherited(models.Model):
     def _compute_stock_level(self):
         for rec in self:
             order = self.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id)])
+            raise UserError("Pawan")
             rec['minimum_stock_level'] = order.product_min_qty
