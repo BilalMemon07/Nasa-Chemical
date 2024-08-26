@@ -26,9 +26,10 @@
                 <attribute name="string">NTN</attribute>
             </xpath>
     
-            <xpath expr="//field[@name='acc_number']" position="after">
+            <!-- Added IBAN Number  -->
+            <!-- <xpath expr="//field[@name='acc_number']" position="after">
                 <field name="bank_iban_num" optional="show"/>
-            </xpath>
+            </xpath> -->
                 
 
             </field>
