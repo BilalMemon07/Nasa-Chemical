@@ -25,6 +25,17 @@
                 </xpath>
             </field>
         </record>
+        <record id="quality_point_inherited_form" model="ir.ui.view">
+            <field name="name">quality.point.inherited.form</field>
+            <field name="model">quality.points</field>
+            <field name="inherit_id" ref="quality.quality_point_view_form"/>
+            <field name="arch" type="xml">            
+                <field name="team_id" position="after">
+                    <field name="methods"/>
+                    <field name="quality_parameters"/>
+                </field>
+            </field>
+        </record>
 
   </data>
 </odoo>

@@ -22,3 +22,14 @@ class PurchaseRerquestLineInherited(models.Model):
     #         order = self.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id.id)])    
     #         if order:    
     #             rec['minimum_stock_level'] = order.product_min_qty
+
+class QualityPoints(models.Model):
+    _inherit = 'quality.point'
+    
+    methods = fields.Char(string="Methods")
+    quality_parameters = fields.Selection([('physical','Physical Property'),('chemical','Chemical Property')])
+
+
+
+
+
