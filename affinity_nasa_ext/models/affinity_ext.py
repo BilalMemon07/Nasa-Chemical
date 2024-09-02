@@ -5,9 +5,6 @@ from odoo.exceptions import UserError
 #     _inherit = 'product.category'
 
 #     company_id = fields.Many2one('res.company', string = 'Companies', default=lambda self: self.env.company)
-
-
-
 class PurchaseRerquestLineInherited(models.Model):
     _inherit = 'purchase.request.line'
 
