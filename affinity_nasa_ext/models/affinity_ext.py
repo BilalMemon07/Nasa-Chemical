@@ -1,8 +1,8 @@
 from odoo import fields, models, api
 from odoo.exceptions import UserError
 
-class ProductCategoryInherited(models.Model):
-    _inherit = 'product.category'
+# class ProductCategoryInherited(models.Model):
+#     _inherit = 'product.category'
 
     # company_id = fields.Many2one('res.company', string = 'Companies', default=lambda self: self.env.company)
 
