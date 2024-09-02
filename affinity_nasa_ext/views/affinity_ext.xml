@@ -21,7 +21,7 @@
                 <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='line_ids']/tree[1]/field[@name='name']" position="after">
                     <field name="date_due" optional="show"/>
                     <field name="minimum_stock_level" optional="show"/>
-                    <field name="forcasting_stock" optional="show"/>
+                    <field name="forecasting_stock" optional="show"/>
                 </xpath>
             </field>
         </record>
