@@ -10,7 +10,7 @@ class PurchaseRerquestLineInherited(models.Model):
     _inherit = 'purchase.request.line'
 
     minimum_stock_level = fields.Float('Minimum Stock Level')
-    forcasting_stock = fields.Float('Forcasting Stock')
+    forecasting_stock = fields.Float('Forecasting Stock')
     date_due = fields.Datetime('Date Due', required = True)
   
 
