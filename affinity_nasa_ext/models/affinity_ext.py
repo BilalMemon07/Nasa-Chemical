@@ -9,8 +9,8 @@ from odoo.exceptions import UserError
 class PurchaseRerquestLineInherited(models.Model):
     _inherit = 'purchase.request.line'
 
-    minimum_stock_level = fields.Char('Minimum Stock Level')
-    forcasting_stock = fields.Char('Forcasting Stock')
+    minimum_stock_level = fields.Float('Minimum Stock Level')
+    forcasting_stock = fields.Float('Forcasting Stock')
     date_due = fields.Datetime('Date Due', required = True)
   
 
