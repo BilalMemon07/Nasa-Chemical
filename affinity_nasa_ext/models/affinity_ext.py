@@ -28,7 +28,11 @@ class QualityPoints(models.Model):
     methods = fields.Char(string="Methods")
     quality_parameters = fields.Selection([('physical','Physical Property'),('chemical','Chemical Property')])
 
+class ProductTemplateInherited(models.Model):
+    _inherit = 'product.template'
 
+    purchase_tolerance = fields.Float('Purchase Tolerance(%)')
+    
 
 
 
