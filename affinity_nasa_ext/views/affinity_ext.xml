@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <!-- <record id="product_category_inherited_form" model="ir.ui.view">
+            <field name="name">product.category.inherited.form</field>
+            <field name="model">product.category</field>
+            <field name="inherit_id" ref="product.product_category_form_view"/>
+            <field name="arch" type="xml">
+                <field name="parent_id" position="after">
+                    <field name="company_id" widget="many2one_tags"/>
+                </field>
+            </field>
+        </record> -->
+
+        <record id="purchase_request_inherited_form" model="ir.ui.view">
+            <field name="name">purchase.request.inherited.form</field>
+            <field name="model">purchase.request</field>
+            <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='line_ids']/tree[1]/field[@name='name']" position="after">
+                    <field name="date_due" optional="show"/>
+                    <field name="minimum_stock_level" optional="show"/>
+                    <field name="forecasting_stock" optional="show"/>
+                </xpath>
+            </field>
+        </record>
+        <record id="quality_point_inherited_form" model="ir.ui.view">
+            <field name="name">quality.point.inherited.form</field>
+            <field name="model">quality.point</field>
+            <field name="inherit_id" ref="quality.quality_point_view_form"/>
+            <field name="arch" type="xml">            
+                <field name="team_id" position="after">
+                    <field name="methods"/>
+                    <field name="quality_parameters"/>
+                </field>
+            </field>
+        </record>
+
+  </data>
+</odoo>
+    
