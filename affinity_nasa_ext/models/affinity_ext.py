@@ -1,5 +1,6 @@
 from odoo import fields, models, api
 from odoo.exceptions import UserError
+from num2words import num2words
 
 # class ProductCategoryInherited(models.Model):
 #     _inherit = 'product.category'
@@ -35,4 +36,15 @@ class ProductTemplateInherited(models.Model):
     
 
 
+class AccountMoveInherited(models.Model):
+    _inherit = 'account.move'
 
+    amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
+    
+    @api.depends('amount_total')
+    def _compute_amount_in_words(self):
+        for payment in self:
+            if payment.amount_total:
+                payment.amount_in_words = num2words(payment.amount_total, lang='en').title()
+            else:
+                payment.amount_in_words = ''
