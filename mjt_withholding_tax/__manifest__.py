@@ -24,9 +24,9 @@
     'data': [
         # 'data/ir_sequence.xml',
         'security/ir.model.access.csv',
-        'views/account_tax_view.xml',
-        'views/account_move_view.xml',
-        'wizard/account_payment_register_view.xml',
+        # 'views/account_tax_view.xml',
+        # 'views/account_move_view.xml',
+        # 'wizard/account_payment_register_view.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
