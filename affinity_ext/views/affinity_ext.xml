@@ -17,7 +17,7 @@
             
             <field name="vat" position="after">
                 <field name="strn_no"/>
-                <field name="cnic_no"/>
+                <!-- <field name="cnic_no"/> -->
                 <field name="vendor_status"/>
                 
                 
@@ -26,6 +26,10 @@
             
             <xpath expr="//field[@name='vat']" position="attributes">
                 <attribute name="string">NTN</attribute>
+            </xpath>
+
+            <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='contact_addresses']/field[@name='child_ids']/form[1]/sheet[1]/group[1]/group[2]/field[@name='phone']" position="after">
+                <field name="cnic_no"/>
             </xpath>
     
             <!-- Added IBAN Number  -->
