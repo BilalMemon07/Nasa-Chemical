@@ -55,31 +55,21 @@ class AccountMoveInherited(models.Model):
             else:
                 payment.amount_in_words = ''
 
+# Purchase Tolerance Automated Action
+# class StockPickingInherited(models.Model):
+#     _inherit = 'stock.picking'
 
-class StockPickingInherited(models.Model):
-    _inherit = 'stock.picking'
-
-    # amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
-    
-    # @api.multi
-    def getquantity(self):
-        for rec in self:
-            high_perc_qty = 0
-            low_perc_qty = 0
-            for line in rec.move_ids_without_package:
+#     def getquantity(self):
+#         for rec in self:
+#             high_perc_qty = 0
+#             low_perc_qty = 0
+#             for line in rec.move_ids_without_package:
                 
-                if line.quantity and line.product_uom_qty:
-                    high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
-                    low_perc_qty = low_perc_qty + line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
-                if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
+#                 if line.quantity and line.product_uom_qty:
+#                     high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
+#                     low_perc_qty = low_perc_qty + line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
+#                 if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
                     
-                    raise UserError('You have violated the purchase tolerance limit')
-
-        # for payment in self:
-        #     if payment.amount_total:
-        #         payment.amount_in_words = num2words(payment.amount_total, lang='en').title()
-        #     else:
-        #         payment.amount_in_words = ''
-
+#                     raise UserError('You have violated the purchase tolerance limit')
         
     
