@@ -157,7 +157,7 @@ class AccountPaymentRegister(models.TransientModel):
                     wht_wizard.append((0, 0, wizard_vals))
             # raise UserError(str(wht_wizard))
             payment_id = self.env['account.payment'].browse(res.id)
-            # res.move_id.button_draft()
+            res.move_id.button_draft()
             # print("---WHTWIZARD", wht_wizard)
 
             res.write({
