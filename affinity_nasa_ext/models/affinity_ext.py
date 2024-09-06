@@ -61,7 +61,7 @@ class StockPickingInherited(models.Model):
 
     # amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
     
-    @api.multi
+    # @api.multi
     def getquantity(self):
         for rec in self:
             high_perc_qty = 0
