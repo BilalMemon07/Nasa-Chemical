@@ -16,9 +16,11 @@
             </field>
             
             <field name="vat" position="after">
-                <field name="vendor_status"/>
                 <field name="strn_no"/>
                 <field name="cnic_no"/>
+                <field name="vendor_status"/>
+                
+                
 
             </field>
             
