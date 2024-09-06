@@ -23,8 +23,9 @@ class PurchaseRerquestInherited(models.Model):
 
     @api.depends('requested_by')
     def get_department(self):
-        rec['department'] = ""
+        
         for rec in self:
+            rec['department'] = ""
             if rec.requested_by:
                 rec['department'] = rec.requested_by.department_id.name
                 
