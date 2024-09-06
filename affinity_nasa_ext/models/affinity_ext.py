@@ -13,16 +13,21 @@ class PurchaseRerquestLineInherited(models.Model):
     minimum_stock_level = fields.Float('Minimum Stock Level')
     forecasting_stock = fields.Float('Forecasting Stock')
     date_due = fields.Datetime('Date Due', required = True)
+
+class PurchaseRerquestInherited(models.Model):
+    _inherit = 'purchase.request'
+
+    department = fields.Char('Department', compute = "get_department")
+    
   
 
-    # @api.depends('product_id')
-    # def _compute_stock_level(self):
+    @api.depends('requested_by')
+    def get_department(self):
         
-    #     for rec in self:
-    #         order = self.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id.id)])    
-    #         if order:    
-    #             rec['minimum_stock_level'] = order.product_min_qty
-
+        for rec in self:
+            if rec.requested_by:
+                rec['department'] = rec.requested_by.department_id.name
+                
 class QualityPoints(models.Model):
     _inherit = 'quality.point'
     
