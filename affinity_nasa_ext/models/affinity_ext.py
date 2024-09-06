@@ -68,13 +68,14 @@ class StockPickingInherited(models.Model):
             low_perc_qty = 0
             for line in rec.move_ids_without_package:
                 if line.quantity and line.product_uom_qty:
-                    # Calculate high and low tolerance quantities
-                    high_perc_qty += line.product_uom_qty + (line.product_uom_qty * line.product_id.purchase_tolerance / 100)
-                    low_perc_qty += line.product_uom_qty - (line.product_uom_qty * line.product_id.purchase_tolerance / 100)
-
-                # If the quantity is outside the tolerance limits, raise an error
+                    
+                    high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
+                    low_perc_qty = low_perc_qty + line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
+                    
+                    # raise UserError(str(low_per_qty))
                 if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
-                    raise UserError('You have violated the purchase tolerance limit for product %s' % line.product_id.name)
+                    
+                    raise UserError('You have violated the purchase tolerance limit')
 
         # Proceed with the default write behavior after the checks
         return super(StockPickingInherited, self).write(vals)
