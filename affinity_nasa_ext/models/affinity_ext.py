@@ -63,19 +63,19 @@ class StockPickingInherited(models.Model):
     @api.model
     def write(self, vals):
         # Loop through each record in self (to handle multi-records)
+        high_perc_qty = 0
+        low_perc_qty = 0
         for rec in self:
-            high_perc_qty = 0
-            low_perc_qty = 0
             for line in rec.move_ids_without_package:
                 if line.quantity and line.product_uom_qty:
                     
                     high_perc_qty =  line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance) / 100) 
                     low_perc_qty =  line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance) / 100 )
                     
-                    # raise UserError(str(low_per_qty))
-                if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
+                    raise UserError(str(low_perc_qty))
+                # if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
                     
-                    raise UserError('You have violated the purchase tolerance limit')
+                #     raise UserError('You have violated the purchase tolerance limit')
 
         # Proceed with the default write behavior after the checks
         return super(StockPickingInherited, self).write(vals)
