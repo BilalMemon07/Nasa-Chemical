@@ -55,6 +55,31 @@ class AccountMoveInherited(models.Model):
             else:
                 payment.amount_in_words = ''
 
+
+class StockPickingInherited(models.Model):
+    _inherit = 'stock.picking'
+
+    # Override the write method to check purchase tolerance before saving the record
+    @api.model
+    def write(self, vals):
+        # Loop through each record in self (to handle multi-records)
+        for rec in self:
+            high_perc_qty = 0
+            low_perc_qty = 0
+            for line in rec.move_ids_without_package:
+                if line.quantity and line.product_uom_qty:
+                    # Calculate high and low tolerance quantities
+                    high_perc_qty += line.product_uom_qty + (line.product_uom_qty * line.product_id.purchase_tolerance / 100)
+                    low_perc_qty += line.product_uom_qty - (line.product_uom_qty * line.product_id.purchase_tolerance / 100)
+
+                # If the quantity is outside the tolerance limits, raise an error
+                if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
+                    raise UserError('You have violated the purchase tolerance limit for product %s' % line.product_id.name)
+
+        # Proceed with the default write behavior after the checks
+        return super(StockPickingInherited, self).write(vals)
+
+
 # Purchase Tolerance Automated Action
 # class StockPickingInherited(models.Model):
 #     _inherit = 'stock.picking'
