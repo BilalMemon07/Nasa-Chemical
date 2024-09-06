@@ -165,7 +165,7 @@ class AccountPaymentRegister(models.TransientModel):
                 'wht_line_ids': wht_wizard
                 })
             res.move_id._check_balanced(self)
-            res.action_post()
+            res.action_post() 
 
             batches = self._get_batches()
             edit_mode = self.can_edit_wizard and (len(batches[0]['lines']) == 1 or self.group_payment)
