@@ -16,7 +16,7 @@
 
     'data': [
         'security/ir.model.access.csv',
-        # 'views/account_payment_view.xml',
+        'views/account_payment_view.xml',
         # 'views/bukti_potong_view.xml',
     ],
 }
