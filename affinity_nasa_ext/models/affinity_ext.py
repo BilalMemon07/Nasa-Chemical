@@ -69,8 +69,8 @@ class StockPickingInherited(models.Model):
             for line in rec.move_ids_without_package:
                 if line.quantity and line.product_uom_qty:
                     
-                    high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
-                    low_perc_qty = low_perc_qty + line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
+                    high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance) / 100) 
+                    low_perc_qty = low_perc_qty + (line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance) / 100 ))
                     
                     # raise UserError(str(low_per_qty))
                 if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
