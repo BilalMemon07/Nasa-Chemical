@@ -10,7 +10,7 @@
     'license':'AGPL-3',
     # 'website': "http://www.metrocomjaddi.com",
     'category': 'Accounting',
-    'version': '17.0.1',
+    'version' : '1.0.0',
 
     'depends': ['account'],
 
