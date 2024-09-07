@@ -33,7 +33,7 @@ class PurchaseRerquestInherited(models.Model):
     @api.model
     def write(self, vals):
         # Loop through each record in self (to handle multi-records)
-        res =  super(StockPickingInherited, self).write(vals)
+        res =  super(PurchaseRerquestInherited, self).write(vals)
         for rec in self:
             for line in rec.line_ids:
                 # Search for the stock warehouse orderpoint for the product
