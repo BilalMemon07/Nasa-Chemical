@@ -12,13 +12,14 @@ class PurchaseRerquestLineInherited(models.Model):
 
     minimum_stock_level = fields.Float('Minimum Stock Level')
     forecasting_stock = fields.Float('Forecasting Stock')
-    date_due = fields.Datetime('Date Due', required = True)
+    on_hand_qty = fields.Flaot('On Hand Quantity')
+    
 
 class PurchaseRerquestInherited(models.Model):
     _inherit = 'purchase.request'
 
     department = fields.Char('Department', compute = "get_department")
-    
+    date_due = fields.Datetime('Date Due', required = True)
   
 
     @api.depends('requested_by')
