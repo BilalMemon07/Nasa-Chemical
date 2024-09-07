@@ -14,7 +14,6 @@ class PurchaseRerquestLineInherited(models.Model):
     forecasting_stock = fields.Float('Forecasting Stock')
     on_hand_qty = fields.Float('On Hand Quantity')
     
-
 class PurchaseRerquestInherited(models.Model):
     _inherit = 'purchase.request'
 
@@ -29,6 +28,36 @@ class PurchaseRerquestInherited(models.Model):
             rec['department'] = ""
             if rec.requested_by:
                 rec['department'] = rec.requested_by.department_id.name
+
+    
+    @api.model
+    def write(self, vals):
+        # Loop through each record in self (to handle multi-records)
+        res =  super(StockPickingInherited, self).write(vals)
+        for rec in self:
+            for line in rec.line_ids:
+                # Search for the stock warehouse orderpoint for the product
+                order = rec.env['stock.warehouse.orderpoint'].search([('product_id', '=', line.product_id.id)])
+                # Search for the stock quant for the product
+                quant = rec.env['stock.quant'].search([('product_id', '=', line.product_id.id), ('location_id.usage', '=', 'internal')])
+                
+                # If a warehouse orderpoint is found
+                if order:
+                    if line.product_id == order.product_id:
+                        # Set minimum stock level and forecasting stock from orderpoint
+                        line['minimum_stock_level'] = order.product_min_qty
+                        line['forecasting_stock'] = order.qty_forecast
+
+                # If a stock quant is found in an internal location
+                if quant:
+                    if line.product_id == quant.product_id:
+                        # Set on hand quantity from quant
+                        line['on_hand_qty'] = quant.inventory_quantity_auto_apply
+
+
+        # Proceed with the default write behavior after the checks
+        return res
+
                 
 class QualityPoints(models.Model):
     _inherit = 'quality.point'
@@ -83,22 +112,3 @@ class StockPickingInherited(models.Model):
         # Proceed with the default write behavior after the checks
         return res
 
-
-# Purchase Tolerance Automated Action
-# class StockPickingInherited(models.Model):
-#     _inherit = 'stock.picking'
-
-#     def getquantity(self):
-#         for rec in self:
-#             high_perc_qty = 0
-#             low_perc_qty = 0
-#             for line in rec.move_ids_without_package:
-                
-#                 if line.quantity and line.product_uom_qty:
-#                     high_perc_qty = high_perc_qty + line.product_uom_qty + ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
-#                     low_perc_qty = low_perc_qty + line.product_uom_qty - ((line.product_uom_qty * line.product_id.purchase_tolerance / 100) )
-#                 if line.quantity > high_perc_qty or line.quantity < low_perc_qty:
-                    
-#                     raise UserError('You have violated the purchase tolerance limit')
-        
-    
