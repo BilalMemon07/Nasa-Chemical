@@ -12,7 +12,7 @@ class PurchaseRerquestLineInherited(models.Model):
 
     minimum_stock_level = fields.Float('Minimum Stock Level')
     forecasting_stock = fields.Float('Forecasting Stock')
-    on_hand_qty = fields.Flaot('On Hand Quantity')
+    on_hand_qty = fields.Float('On Hand Quantity')
     
 
 class PurchaseRerquestInherited(models.Model):
