@@ -79,7 +79,7 @@ class StockPickingInherited(models.Model):
                     raise UserError('You have violated the purchase tolerance limit')
 
         # Proceed with the default write behavior after the checks
-        return super(StockPickingInherited, self).write(vals)
+        # return super(StockPickingInherited, self).write(vals)
 
 
 # Purchase Tolerance Automated Action
