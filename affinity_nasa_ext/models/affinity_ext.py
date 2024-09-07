@@ -63,6 +63,7 @@ class StockPickingInherited(models.Model):
     @api.model
     def write(self, vals):
         # Loop through each record in self (to handle multi-records)
+        res =  super(StockPickingInherited, self).write(vals)
         high_perc_qty = 0
         low_perc_qty = 0
         for rec in self:
@@ -79,7 +80,7 @@ class StockPickingInherited(models.Model):
                     raise UserError('You have violated the purchase tolerance limit')
 
         # Proceed with the default write behavior after the checks
-        # return super(StockPickingInherited, self).write(vals)
+        return res
 
 
 # Purchase Tolerance Automated Action
