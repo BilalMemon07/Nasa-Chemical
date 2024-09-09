@@ -26,10 +26,10 @@ class PurchaseOrderLineInherited(models.Model):
         for rec in self:
             order = rec.env['purchase.order'].search([('order_id', '=', rec.id)])
             if order:
-                raise UserError("pawan")
+                # raise UserError("pawan")
             
-            #     if rec.payment_term_id:
-            #         rec['payment_terms'] = order.payment_term_id
+                if rec.payment_term_id:
+                    rec['payment_terms'] = order.payment_term_id
 
         # Proceed with the default write behavior after the checks
         return res
