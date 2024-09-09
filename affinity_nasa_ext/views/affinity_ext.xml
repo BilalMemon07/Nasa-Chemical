@@ -48,8 +48,8 @@
         </record>
 
         <record id="purchase_order_line_inherited_tree" model="ir.ui.view">
-            <field name="name">Purchase.order.line.inherited.tree</field>
-            <field name="model">Purchase.order.line</field>
+            <field name="name">purchase.order.line.inherited.tree</field>
+            <field name="model">purchase.order.line</field>
             <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
             <field name="arch" type="xml">            
                 <field name="partner_id" position="after">
