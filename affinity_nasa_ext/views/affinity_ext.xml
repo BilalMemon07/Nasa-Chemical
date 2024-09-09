@@ -47,6 +47,22 @@
             </field>
         </record>
 
+        <record id="purchase_order_line_inherited_tree" model="ir.ui.view">
+            <field name="name">Purchase.order.line.inherited.tree</field>
+            <field name="model">Purchase.order.line</field>
+            <field name="inherit_id" ref="purchase.purchase_order_line_tree"/>
+            <field name="arch" type="xml">            
+                <field name="partner_id" position="after">
+                    <field name="payment_terms"/>
+                    <!-- <field name="quality_parameters"/> -->
+                </field>
+                <field name="price_subtotal" position="after">
+                    <field name="price_total"/>
+                    <!-- <field name="quality_parameters"/> -->
+                </field>
+            </field>
+        </record>
+
 
         <record id="product_template_inherited_form" model="ir.ui.view">
             <field name="name">product.template.inherited.form</field>

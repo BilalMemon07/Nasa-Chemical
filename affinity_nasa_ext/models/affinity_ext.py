@@ -13,7 +13,28 @@ class PurchaseRerquestLineInherited(models.Model):
     minimum_stock_level = fields.Float('Minimum Stock Level')
     forecasting_stock = fields.Float('Forecasting Stock')
     on_hand_qty = fields.Float('On Hand Quantity')
-    
+
+class PurchaseOrderLineInherited(models.Model):
+    _inherit = 'purchase.order.line'
+
+    payment_terms = fields.Many2one('account.payment.term', string = "Payment Terms")
+
+    @api.model
+    def write(self, vals):
+        # Loop through each record in self (to handle multi-records)
+        res =  super(PurchaseOrderLineInherited, self).write(vals)
+        for rec in self:
+            order = rec.env['purchase.order'].search([('order_id', '=', rec.id)])
+            if order:
+                raise UserError("pawan")
+            
+            #     if rec.payment_term_id:
+            #         rec['payment_terms'] = order.payment_term_id
+
+        # Proceed with the default write behavior after the checks
+        return res
+
+
 class PurchaseRerquestInherited(models.Model):
     _inherit = 'purchase.request'
 
