@@ -18,7 +18,7 @@ class PurchaseRerquestInherited(models.Model):
     _inherit = 'purchase.request'
 
     department = fields.Char('Department', compute = "get_department")
-    date_due = fields.Datetime('Date Due', required = True)
+    date_due = fields.Datetime('Due Date', required = True)
   
 
     @api.depends('requested_by')
