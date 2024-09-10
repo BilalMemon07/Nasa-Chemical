@@ -75,6 +75,18 @@
                 </field>
             </field>
         </record>
+        <record id="sale_order_inherited_form" model="ir.ui.view">
+            <field name="name">sale.order.inherited.form</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <field name="partner_id" position="after">
+                    <field name="amount_in_words"/>
+                    <!-- <field name="date_due"/> -->
+                    <!-- <field name="quality_parameters"/> -->
+                </field>
+            </field>
+        </record>
 
   </data>
 </odoo>
