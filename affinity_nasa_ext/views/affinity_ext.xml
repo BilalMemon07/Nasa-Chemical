@@ -19,12 +19,22 @@
             <field name="inherit_id" ref="purchase_request.view_purchase_request_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//form[1]/sheet[1]/notebook[1]/page[1]/field[@name='line_ids']/tree[1]/field[@name='name']" position="after">
-                    <field name="date_due" optional="show"/>
+                    
                     <field name="minimum_stock_level" optional="show"/>
+                    <!--  -->
                     <field name="forecasting_stock" optional="show"/>
+                    <field name="on_hand_qty" optional="show"/>
                 </xpath>
+                <field name="description" position="after">
+                    <field name="department"/>
+                    <field name="date_due"/>
+                    <!-- <field name="quality_parameters"/> -->
+                </field>
             </field>
         </record>
+
+
+
         <record id="quality_point_inherited_form" model="ir.ui.view">
             <field name="name">quality.point.inherited.form</field>
             <field name="model">quality.point</field>
@@ -33,6 +43,22 @@
                 <field name="team_id" position="after">
                     <field name="methods"/>
                     <field name="quality_parameters"/>
+                </field>
+            </field>
+        </record>
+
+        <record id="purchase_order_line_inherited_tree" model="ir.ui.view">
+            <field name="name">purchase.order.line.inherited.tree</field>
+            <field name="model">purchase.order.line</field>
+            <field name="inherit_id" ref="purchase_requisition.purchase_order_line_compare_tree"/>
+            <field name="arch" type="xml">            
+                <field name="partner_id" position="after">
+                    <field name="payment_terms"/>
+                    <!-- <field name="quality_parameters"/> -->
+                </field>
+                <field name="price_subtotal" position="after">
+                    <field name="price_total"/>
+                    <!-- <field name="quality_parameters"/> -->
                 </field>
             </field>
         </record>
