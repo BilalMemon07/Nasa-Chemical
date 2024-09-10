@@ -48,3 +48,16 @@ class AccountMoveInherited(models.Model):
                 payment.amount_in_words = num2words(payment.amount_total, lang='en').title()
             else:
                 payment.amount_in_words = ''
+
+class SaleOrderInherited(models.Model):
+    _inherit = 'sale.order'
+
+    amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
+    
+    @api.depends('amount_total')
+    def _compute_amount_in_words(self):
+        for payment in self:
+            if payment.amount_total:
+                payment.amount_in_words = num2words(payment.amount_total, lang='en').title()
+            else:
+                payment.amount_in_words = ''
