@@ -28,15 +28,15 @@
                             </div>
                             <div class="row">
                                 <div class="col-12" style="text-align:center">
-                                    <t t-if="other['from_date']">
-                                        <b>From :</b>
-                                        <t t-esc="other['from_date']"/>
+                                    <t t-if="other['date_from']">
+                                        <b>From:</b>
+                                        <t t-esc="other['date_from']"/>
                                     </t>
                                     <br/>
-                                    <t t-if="other['to_date']">
-                                        <b>To :</b>
+                                    <t t-if="other['date_to']">
+                                        <b>To:</b>
         
-                                        <t t-esc="other['to_date']"/>
+                                        <t t-esc="other['date_to']"/>
                                     </t>
                                 </div>
                                 
