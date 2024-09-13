@@ -42,7 +42,7 @@ class CustomReport(models.AbstractModel):
         query = ("""
                 SELECT 
                     pt.name ->> 'en_US' as item,
-                    po.company_id as id
+                    po.company_id as id,
                     mm.name ->> 'en_US'  AS Unit,
                     pol.product_qty AS qty,  
                     pol.price_subtotal AS amount
