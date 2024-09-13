@@ -67,9 +67,7 @@ class CustomReport(models.AbstractModel):
                 inner join stock_picking_type spt on spt.id = po.picking_type_id
                 inner join stock_warehouse sw on sw.id = spt.warehouse_id
                 inner join uom_uom mm on mm.id = pol.product_uom
-                """
-        
-        % (date_from, date_to,product_ids_str,warehouse_id, vendor_ids_str, po_no, grn, invoice_no, pr_no) )
+                """        )
 
         if date_from and date_to:
             query += "po.date_order BETWEEN '%s' AND '%s'" % (date_from, date_to)
@@ -96,7 +94,7 @@ class CustomReport(models.AbstractModel):
             query += "AND po.origin = '%s'" % (pr_no)
 
         query += "order by po.name"
-        
+
         cr.execute(query)
         data = cr.dictfetchall()
 
