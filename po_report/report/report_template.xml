@@ -5,29 +5,43 @@
             <t t-call="web.basic_layout">
 
                 <div class="header">
-                    <!--<div class="row">-->
-                        <div class="row text-center">
-                            <h1>NASA CHEMICALS</h1>
-                        </div>
-                        <div class="row text-center">
-                            <h1>Purchase Order - Report</h1>
-                        </div>
-                        <div class="row">
-                            <div class= "col-12" style= "text-align:center">
-                                <t t-if="other['from_date']">
-                                    <b>From :</b>
-                                    <t t-esc="other['from_date']"/>
-                                </t>
-                                <br/>
-                                <t t-if="other['to_date']">
-                                    <b>To :</b>
-    
-                                    <t t-esc="other['to_date']"/>
-                                </t>
-                            </div>
+                    <div class="row mt-2">
+                        <div class = "col-4">
+                            <t t-set="comp" t-value=""/>
+                            <t t-foreach="data" t-as="vals">
+                                <t t-set="comp" t-value="env['res.company'].search([('id','=',vals['id'])])"/>
+                            </t>
                             
+                            <div class="row">
+                                <div class="col-12" style="text-align: center;">
+                                    <img t-if="comp.logo" t-att-src="image_data_uri(comp.logo)" style="max-height: 200px; width: 105%; margin-top: 15px;  margin-left: -10px;" alt="header"/>        
+                                </div>
+                            </div>
                         </div>
-                        <!--</div>-->
+                        <div class = "col-8">
+                            <div class="row text-center">
+                                <h1>NASA CHEMICALS</h1>
+                            </div>
+                            <div class="row text-center">
+                                <h1>Purchase Order - Report</h1>
+                            </div>
+                            <div class="row">
+                                <div class= "col-12" style= "text-align:center">
+                                    <t t-if="other['from_date']">
+                                        <b>From :</b>
+                                        <t t-esc="other['from_date']"/>
+                                    </t>
+                                    <br/>
+                                    <t t-if="other['to_date']">
+                                        <b>To :</b>
+        
+                                        <t t-esc="other['to_date']"/>
+                                    </t>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
                     <!--</div>-->
                 </div>
                 

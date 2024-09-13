@@ -45,6 +45,7 @@ class CustomReport(models.AbstractModel):
                 SELECT distinct
                     -- cast(getdate() as po.date_order) as date, 
                     po.date_order AS date,
+                    po.company_id as id,
                     rs.name AS vendor,
                     pt.name ->> 'en_US' AS item,
                     po.origin as prno,
