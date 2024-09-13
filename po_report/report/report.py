@@ -43,8 +43,8 @@ class CustomReport(models.AbstractModel):
         cr = self._cr
         query = ("""
                 SELECT distinct
-                    cast(getdate() as po.date_order) as date, 
-                    -- po.date_order AS date,
+                    -- cast(getdate() as po.date_order) as date, 
+                    po.date_order AS date,
                     rs.name AS vendor,
                     pt.name ->> 'en_US' AS item,
                     po.origin as prno,
@@ -72,7 +72,7 @@ class CustomReport(models.AbstractModel):
                 """        )
 
         if date_from and date_to:
-            query += "AND po.create_date BETWEEN '%s' AND '%s'" % (date_from, date_to)
+            query += "AND po.date_order BETWEEN '%s' AND '%s'" % (date_from, date_to)
         
         if product_ids:
             query += "AND pt.id in (%s)" % (product_ids_str)
