@@ -49,27 +49,27 @@
                             <table class="table-bordered">
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:200px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:400px;">
                                             <b>Item</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:150px;">
                                             <b>Unit</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:120px;">
-                                            <b>Purc. Qty.</b>
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:200px;">
+                                            <b>Purchase Quantity</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
-                                            <b>Purc. Amt.</b>
+                                        <th style="text-align:right;border-bottom:1px solid black;padding:6px;width:200px;">
+                                            <b>Purchase Amount</b>
                                         </th>
 
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr t-foreach="data" t-as="value">
-                                        <td style="text-align:left;"><span t-esc="value['item']"/></td>
-                                        <td style="text-align:left;"><span t-esc="value['unit']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['qty']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['amount']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['item']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['unit']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['qty']"/></td>
+                                        <td style="text-align:right; padding:2px;"><span t-esc="value['amount']"/></td>
                                         
                                     </tr>
 
@@ -78,12 +78,12 @@
                                             <b>Totals</b>
                                         </td>
                                         
-                                        <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_qty']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        <td class="total-cell" style="text-align:center; padding:2px;">
+                                            <b><span t-esc="totals['total_qty']" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2, &quot;thousands_sep&quot;: &quot;,&quot;}"/></b>
                                         </td>
 
-                                        <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_amount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        <td class="total-cell" style="text-align:right; padding:2px;">
+                                            <b><span t-esc="totals['total_amount']" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2, &quot;thousands_sep&quot;: &quot;,&quot;}"/></b>
                                         </td>
                                     </tr>
 
