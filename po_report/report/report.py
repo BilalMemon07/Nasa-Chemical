@@ -71,7 +71,7 @@ class CustomReport(models.AbstractModel):
                 """        )
 
         if date_from and date_to:
-            query += "cast(getdate() as po.date_order) BETWEEN '%s' AND '%s'" % (date_from, date_to)
+            query += "cast(getdate() as po.date_order) as date BETWEEN '%s' AND '%s'" % (date_from, date_to)
         
         if product_ids:
             query += "AND pt.id in (%s)" % (product_ids_str)
