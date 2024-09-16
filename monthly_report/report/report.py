@@ -10,15 +10,6 @@ class CustomReport(models.AbstractModel):
 
     def _get_report_values(self, docids, data=None):
         
-    #     product_ids = fields.Many2many('product.template', string='Product', required=True)
-    # warehouse_id = fields.Many2one('stock.warehouse', string = "Ware House")
-    # vendor = fields.Char(string = "Vendor")
-    # po_no = fields.Char(string = "po_no")
-    # grn = fields.Char(string = "grn")
-    # invoice_no = fields.Char(string = "invoice_no")
-    # pr_no = fields.Char(string = "pr_no")
-
-        
         other_details = {}
         date_from = data['date_from']
         date_to = data['date_to']
