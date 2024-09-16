@@ -40,10 +40,11 @@ class CustomReport(models.AbstractModel):
                         am.invoice_date_due as duedate,
                         apt.name ->> 'en_US' as duedays,
                         am.amount_total as advamount,
-                        am.amount_residual_signed as pendamount
+                        am.amount_residual_signed as pendamount,
+                        po.company_id as id
                     
-                        FROM purchase_order_line pol 
-                        INNER JOIN purchase_order po ON po.id = pol.order_id
+                        FROM purchase_order po 
+                        INNER JOIN purchase_order_line pol ON pol.order_id = po.id 
                         inner join res_partner rs on rs.id = po.partner_id
                         Left JOIN stock_picking sp ON sp.origin = po.name   
                         Left JOIN account_move am ON am.invoice_origin = po.name
@@ -53,16 +54,19 @@ class CustomReport(models.AbstractModel):
                         inner join uom_uom mm on mm.id = pol.product_uom
 
                     WHERE 
-                        po.date_order BETWEEN '%s' AND '%s'
-                        
-                        AND rs.id in (%s)
-                        
-
-                    order by po.name
+                        po.id is not null
+                    
                     
                 """
         
-        % (date_from, date_to,vendor_ids_str) )
+        )
+
+        if date_from and date_to:
+            query += "AND po.date_order BETWEEN '%s' AND '%s'" % (date_from, date_to)
+        if vendor_ids:
+            query += "AND rs.id in (%s)" % (vendor_ids_str)
+
+        query += "order by po.name"
 
         cr.execute(query)
         data = cr.dictfetchall()
