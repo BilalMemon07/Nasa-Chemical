@@ -52,32 +52,32 @@
 
                                 <thead>
                                     <tr>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:180px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:300px;">
                                             <b>Vendor</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:120px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>PO No</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>PO Date</b>
                                         </th>
                                         
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:150px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>Adv Date</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>Due Date</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>Days</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>PO Amount</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>Adv Amount</b>
                                         </th>
-                                        <th style="text-align:center;border-bottom:1px solid black;padding:10px;width:100px;">
+                                        <th style="text-align:center;border-bottom:1px solid black;padding:6px;width:100px;">
                                             <b>Pending Amt.</b>
                                         </th>
                                         
@@ -87,31 +87,31 @@
                                 <tbody>
                                     <tr t-foreach="data" t-as="value">
 
-                                        <td style="text-align:left;"><span t-esc="value['vendor']"/></td>
-                                        <td style="text-align:left;"><span t-esc="value['pono']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['vendor']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['pono']"/></td>
                                         
-                                        <td style="text-align:left;"><span t-esc="value['podate']"/></td>
-                                        <td style="text-align:left;"><span t-esc="value['advdate']"/></td>
-                                        <td style="text-align:left;"><span t-esc="value['duedate']"/></td>
-                                        <td style="text-align:left;"><span t-esc="value['duedays']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['poamount']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['advamount']"/></td>
-                                        <td style="text-align:right;"><span t-esc="value['pendamount']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['podate']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['advdate']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['duedate']"/></td>
+                                        <td style="text-align:center; padding:2px;"><span t-esc="value['duedays']"/></td>
+                                        <td style="text-align:right; padding:2px;"><span t-esc="value['poamount']"/></td>
+                                        <td style="text-align:right; padding:2px;"><span t-esc="value['advamount']"/></td>
+                                        <td style="text-align:right; padding:2px;"><span t-esc="value['pendamount']"/></td>
                                         
                                     </tr>
                                     
                                     <tr>
-                                        <td colspan="6" class="total-cell" style="text-align:right; padding:4px;">
+                                        <td colspan="6" class="total-cell" style="text-align:right; padding:2px;">
                                             <b>Totals</b>
                                         </td>
-                                        <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_poamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        <td class="total-cell" style="text-align:right; padding:2px;">
+                                            <b><span t-esc="totals['total_poamount']" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2, &quot;thousands_sep&quot;: &quot;,&quot;}"/></b>
                                         </td>
-                                        <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_advamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        <td class="total-cell" style="text-align:right; padding:2px;">
+                                            <b><span t-esc="totals['total_advamount']" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2, &quot;thousands_sep&quot;: &quot;,&quot;}"/></b>
                                         </td>
-                                        <td class="total-cell" style="text-align:right; padding:4px;">
-                                            <b><span t-esc="totals['total_pendamount']" t-options='{"widget": "float", "precision": 2, "thousands_sep": ","}'/></b>
+                                        <td class="total-cell" style="text-align:right; padding:2px;">
+                                            <b><span t-esc="totals['total_pendamount']" t-options="{&quot;widget&quot;: &quot;float&quot;, &quot;precision&quot;: 2, &quot;thousands_sep&quot;: &quot;,&quot;}"/></b>
                                         </td>
                                     </tr>
 
