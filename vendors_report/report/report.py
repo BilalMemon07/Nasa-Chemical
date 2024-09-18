@@ -18,8 +18,8 @@ class CustomReport(models.AbstractModel):
         
 
         other_details.update({
-                'from_date': date_from,
-                'to_date': date_to,
+                'date_from': date_from,
+                'date_to': date_to,
                 'vendor_ids': vendor_ids,
                 
             })
