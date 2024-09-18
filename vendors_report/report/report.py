@@ -74,7 +74,7 @@ class CustomReport(models.AbstractModel):
 
         totals = {
             'total_poamount': sum(item['poamount'] for item in data),
-            'total_advamount': sum(item['advamount'] for item in data),
+            'total_advamount': sum(item['advamount'] for item in data or 0),
             'total_pendamount': sum(item['pendamount'] for item in data),
             
         }
