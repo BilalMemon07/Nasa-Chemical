@@ -32,7 +32,7 @@ class CustomReport(models.AbstractModel):
                     SELECT 
                             
                         rs.name as vendor,
-                        po.company_id as id
+                        po.company_id as id,
                         po.date_order AS podate,
                         po.name as pono,
                         pol.price_total AS poamount,
