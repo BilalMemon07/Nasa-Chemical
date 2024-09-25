@@ -13,6 +13,28 @@ class PurchaseRerquestLineInherited(models.Model):
     minimum_stock_level = fields.Float('Minimum Stock Level')
     forecasting_stock = fields.Float('Forecasting Stock')
     on_hand_qty = fields.Float('On Hand Quantity')
+    @api.onchange('product_id')
+    def _on_change_product_id(self):
+        for rec in self:
+            
+            order = rec.env['stock.warehouse.orderpoint'].search([('product_id', '=', rec.product_id.id)])
+            # Search for the stock quant for the product
+            quant = rec.env['stock.quant'].search([('product_id', '=', rec.product_id.id), ('location_id.usage', '=', 'internal')])
+            
+            # If a warehouse orderpoint is found
+            if rec.product_id:
+                if rec.product_id == order.product_id:
+                    # Set minimum stock level and forecasting stock from orderpoint
+                    rec['minimum_stock_level'] = order.product_min_qty
+                    rec['forecasting_stock'] = order.qty_forecast
+
+            # If a stock quant is found in an internal location
+            if quant:
+                if rec.product_id == quant.product_id:
+                    # Set on hand quantity from quant
+                    rec['on_hand_qty'] = quant.inventory_quantity_auto_apply
+
+
 
 class PurchaseOrderLineInherited(models.Model):
     _inherit = 'purchase.order.line'
@@ -51,33 +73,33 @@ class PurchaseRerquestInherited(models.Model):
                 rec['department'] = rec.requested_by.department_id.name
 
     
-    @api.model
-    def write(self, vals):
-        # Loop through each record in self (to handle multi-records)
-        res =  super(PurchaseRerquestInherited, self).write(vals)
-        for rec in self:
-            for line in rec.line_ids:
-                # Search for the stock warehouse orderpoint for the product
-                order = rec.env['stock.warehouse.orderpoint'].search([('product_id', '=', line.product_id.id)])
-                # Search for the stock quant for the product
-                quant = rec.env['stock.quant'].search([('product_id', '=', line.product_id.id), ('location_id.usage', '=', 'internal')])
+    # @api.model
+    # def write(self, vals):
+    #     # Loop through each record in self (to handle multi-records)
+    #     res =  super(PurchaseRerquestInherited, self).write(vals)
+    #     for rec in self:
+    #         for line in rec.line_ids:
+    #             # Search for the stock warehouse orderpoint for the product
+    #             order = rec.env['stock.warehouse.orderpoint'].search([('product_id', '=', line.product_id.id)])
+    #             # Search for the stock quant for the product
+    #             quant = rec.env['stock.quant'].search([('product_id', '=', line.product_id.id), ('location_id.usage', '=', 'internal')])
                 
-                # If a warehouse orderpoint is found
-                if order:
-                    if line.product_id == order.product_id:
-                        # Set minimum stock level and forecasting stock from orderpoint
-                        line['minimum_stock_level'] = order.product_min_qty
-                        line['forecasting_stock'] = order.qty_forecast
+    #             # If a warehouse orderpoint is found
+    #             if order:
+    #                 if line.product_id == order.product_id:
+    #                     # Set minimum stock level and forecasting stock from orderpoint
+    #                     line['minimum_stock_level'] = order.product_min_qty
+    #                     line['forecasting_stock'] = order.qty_forecast
 
-                # If a stock quant is found in an internal location
-                if quant:
-                    if line.product_id == quant.product_id:
-                        # Set on hand quantity from quant
-                        line['on_hand_qty'] = quant.inventory_quantity_auto_apply
+    #             # If a stock quant is found in an internal location
+    #             if quant:
+    #                 if line.product_id == quant.product_id:
+    #                     # Set on hand quantity from quant
+    #                     line['on_hand_qty'] = quant.inventory_quantity_auto_apply
 
 
-        # Proceed with the default write behavior after the checks
-        return res
+    #     # Proceed with the default write behavior after the checks
+    #     return res
 
                 
 class QualityPoints(models.Model):
