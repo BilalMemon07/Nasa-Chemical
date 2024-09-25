@@ -9,7 +9,7 @@ class ResPartnerInherited(models.Model):
     artical = fields.Char("Article of Association and Memorandom", required = True)
     strn_no = fields.Char("STRN", required = True)
     cnic_no = fields.Char("CNIC Number", required = True)
-    status = fields.Selection([('active', 'Active'), ('non_active', 'Non Active')], string = "Status")
+    vendor_status = fields.Selection([('active', 'Active'), ('non_active', 'Non Active')], string = "Status")
     major_client = fields.Selection([('a','A Category'), ('b', 'B Category'), ('c', 'C Category')]) 
 
 class ResPartnerBankInherited(models.Model):

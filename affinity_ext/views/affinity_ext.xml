@@ -18,7 +18,7 @@
             <field name="vat" position="after">
                 <field name="strn_no"/>
                 <!-- <field name="cnic_no"/> -->
-                <field name="status"/>
+                <field name="vendor_status"/>
                 
                 
 
