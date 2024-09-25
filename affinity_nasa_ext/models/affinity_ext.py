@@ -117,6 +117,7 @@ class StockPickingInherited(models.Model):
         high_perc_qty = 0
         low_perc_qty = 0
         for rec in self:
+            raise UserError(str(rec.move_type))
             for line in rec.move_ids_without_package:
                 if line.quantity and line.product_uom_qty:
                     
