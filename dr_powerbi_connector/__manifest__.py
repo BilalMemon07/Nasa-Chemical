@@ -1,8 +1,8 @@
 {
     'name': 'PowerBI Connector',
-    'version': '17.0.0',
+    'version': '17.0.0.4',
     'author': "Digital Roots",
-    'category': 'Data Analysis',
+    # 'category': 'Data Analysis',
     "support": "sales@digitalroots.com.kw",
     "website": "https://digitalroots.com.kw",
     "license": "OPL-1",
