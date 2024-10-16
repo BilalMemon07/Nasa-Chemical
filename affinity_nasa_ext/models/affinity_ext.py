@@ -102,6 +102,14 @@ class PurchaseRerquestInherited(models.Model):
     #     return res
 
                 
+class QualityCheck(models.Model):
+    _inherit = 'quality.check'
+
+    def in_progress(self):
+        for rec in self:
+            rec['quality_state'] = 'in_progress'
+
+
 class QualityPoints(models.Model):
     _inherit = 'quality.point'
     
@@ -181,7 +189,7 @@ class SaleOrderLineInherited(models.Model):
     _inherit = 'sale.order.line'
 
     is_discount = fields.Selection(selection=[('yes', 'Yes'),('no', 'No')],string='Is Discount',default='no')
-    
+
 class SaleOrderInherited(models.Model):
     _inherit = 'sale.order'
 
