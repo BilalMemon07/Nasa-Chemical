@@ -115,7 +115,7 @@ class ProductTemplateInherited(models.Model):
     new_code = fields.Char(string="New Code")
 
     def write(self,vals):
-        for rec in vals:
+        for rec in self:
             current_category = rec.categ_id
             while current_category.parent_id:
                 current_category = current_category.parent_id
