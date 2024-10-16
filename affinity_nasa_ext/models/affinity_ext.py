@@ -107,7 +107,7 @@ class QualityCheck(models.Model):
 
     def in_progres(self):
         for rec in self:
-            rec.write({'quality_state': 'in_progress'})
+            rec.write({'quality_state': "in_progress"})
 
 
 class QualityPoints(models.Model):
