@@ -185,9 +185,9 @@ class SaleOrderInherited(models.Model):
 
     @api.model
     def create(self, vals):
-        res = super().create(vals)
         current_user = self.env.user.city
-        self['city_of_user'] = current_user
+        vals['city_of_user'] = current_user
+        res = super().create(vals)
         
         return res
     @api.depends('amount_total')
