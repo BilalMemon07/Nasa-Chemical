@@ -190,3 +190,18 @@ class SaleOrderInherited(models.Model):
             else:
                 payment.amount_in_words = ''
 
+    @api.onchange('partner_id')
+    def partner(self):
+        for rec in self:
+            partner = []
+            
+            if rec.partner_id and rec.partner_id.city == self.env.user.city:
+                partner.append(rec.partner_id.id)  
+        return {
+    'domain': {
+        'partner_id': [('id', 'in', partner)]
+    }
+    }
+
+        
+
