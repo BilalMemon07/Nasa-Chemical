@@ -190,23 +190,23 @@ class SaleOrderInherited(models.Model):
             else:
                 payment.amount_in_words = ''
 
-    # @api.model
-    # def partner(self):
-    #     for rec in self:
-    #         partner = []
-            
-    #         if rec.partner_id and rec.partner_id.city == self.env.user.city:
-    #             partner.append(rec.partner_id.id)  
-    #     return {
-    # 'domain': {
-    #     'partner_id': [('id', 'in', partner)]
-    # }
-    # }
-
-    @api.depends_context('default_user_city')
-    def _compute_partner_city(self):
+    @api.model
+    def partner(self):
         for rec in self:
-            rec.partner_id = self.env['res.partner'].search([('city', '=', self.env.context.get('default_user_city'))])
+            partner = []
+            
+            if rec.partner_id and rec.partner_id.city == self.env.user.city:
+                partner.append(rec.partner_id.id)  
+        return {
+    'domain': {
+        'partner_id': [('id', 'in', partner)]
+    }
+    }
+
+    # @api.depends_context('default_user_city')
+    # def _compute_partner_city(self):
+    #     for rec in self:
+    #         rec.partner_id = self.env['res.partner'].search([('city', '=', self.env.context.get('default_user_city'))])
 
         
 
