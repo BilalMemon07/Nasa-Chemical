@@ -113,6 +113,21 @@ class ProductTemplateInherited(models.Model):
 
     purchase_tolerance = fields.Float('Purchase Tolerance(%)', default=10.00)
     new_code = fields.Char(string="New Code")
+
+    def write(self,vals):
+        for rec in vals:
+            current_category = rec.categ_id
+            while current_category.parent_id:
+                current_category = current_category.parent_id
+            
+            if current_category.id == 1050:
+                rec['new_code'] =  self.env['ir.sequence'].next_by_code('raw')
+            if current_category.id == 1113:
+                rec['new_code'] =  self.env['ir.sequence'].next_by_code('packing')
+            if current_category.id == 1003:
+                rec['new_code'] =  self.env['ir.sequence'].next_by_code('finished')
+            if current_category.id == 1543:
+                rec['new_code'] =  self.env['ir.sequence'].next_by_code('semi')
     
 
 
