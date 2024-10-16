@@ -184,10 +184,12 @@ class SaleOrderInherited(models.Model):
     city_of_user = fields.Char(string="City Of User")
 
     @api.model
-    def create(self, vals):
-        current_user = self.env.user.city
-        vals['city_of_user'] = current_user
-        res = super().create(vals)
+    def default_get(self, fields):
+        res = super(SaleOrderInherited, self).default_get(fields)
+        
+        # Set the domain for partner_id based on the user's city
+        if 'partner_id' in fields:
+            res['domain'] = {'partner_id': [('city', '=', self.env.user.city)]}
         
         return res
     @api.depends('amount_total')
