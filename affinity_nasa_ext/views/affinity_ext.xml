@@ -71,7 +71,7 @@
             <field name="arch" type="xml">            
                 <field name="uom_id" position="after">
                     <field name="purchase_tolerance"/>
-                    <!-- <field name="quality_parameters"/> -->
+                    <field name="new_code"/>
                 </field>
             </field>
         </record>

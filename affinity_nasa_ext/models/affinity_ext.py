@@ -112,6 +112,7 @@ class ProductTemplateInherited(models.Model):
     _inherit = 'product.template'
 
     purchase_tolerance = fields.Float('Purchase Tolerance(%)', default=10.00)
+    new_code = fields.Char(string="New Code")
     
 
 
