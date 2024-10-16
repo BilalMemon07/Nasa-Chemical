@@ -117,18 +117,18 @@ class ProductTemplateInherited(models.Model):
     def write(self, vals):
         for rec in self:
             current_category = rec.categ_id
-            
-            while current_category.parent_id:
-                current_category = current_category.parent_id
+            if not rec.new_code:
+                while current_category.parent_id:
+                    current_category = current_category.parent_id
 
-            if current_category.id == 1050:
-                vals['new_code'] = self.env['ir.sequence'].next_by_code('raw')
-            elif current_category.id == 1113:
-                vals['new_code'] = self.env['ir.sequence'].next_by_code('packing')
-            elif current_category.id == 1003:
-                vals['new_code'] = self.env['ir.sequence'].next_by_code('finished')
-            elif current_category.id == 1543:
-                vals['new_code'] = self.env['ir.sequence'].next_by_code('semi')
+                if current_category.id == 1050:
+                    vals['new_code'] = self.env['ir.sequence'].next_by_code('raw')
+                elif current_category.id == 1113:
+                    vals['new_code'] = self.env['ir.sequence'].next_by_code('packing')
+                elif current_category.id == 1003:
+                    vals['new_code'] = self.env['ir.sequence'].next_by_code('finished')
+                elif current_category.id == 1543:
+                    vals['new_code'] = self.env['ir.sequence'].next_by_code('semi')
 
         return super(ProductTemplateInherited, self).write(vals)
 
