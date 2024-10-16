@@ -82,6 +82,7 @@
             <field name="arch" type="xml">
                 <field name="partner_id" position="after">
                     <field name="amount_in_words"/>
+                    <field name="city_of_user"/>
                     <!-- <field name="date_due"/> -->
                     <!-- <field name="quality_parameters"/> -->
                 </field>
