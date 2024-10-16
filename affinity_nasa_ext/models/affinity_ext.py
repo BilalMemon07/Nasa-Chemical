@@ -177,6 +177,11 @@ class StockPickingInherited(models.Model):
         return res
 
 
+class SaleOrderLineInherited(models.Model):
+    _inherit = 'sale.order.line'
+
+    is_discount = fields.Selection(selection=[('yes', 'Yes'),('no', 'No')],string='Is Discount',default='no')
+    
 class SaleOrderInherited(models.Model):
     _inherit = 'sale.order'
 

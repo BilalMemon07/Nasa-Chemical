@@ -84,6 +84,10 @@
                     <field name="amount_in_words"/>
                     <!-- <field name="date_due"/> -->
                     <!-- <field name="quality_parameters"/> -->
+                    <xpath expr="//form[1]/sheet[1]/notebook[1]/page[@name='products']/field[@name='order_line']/tree[1]/field[@name='discount']" position="before">
+                        <field name="is_discount"/>
+                    </xpath>
+                
                 </field>
             </field>
         </record>
