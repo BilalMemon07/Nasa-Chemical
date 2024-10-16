@@ -102,12 +102,6 @@ class PurchaseRerquestInherited(models.Model):
     #     return res
 
                 
-class QualityCheck(models.Model):
-    _inherit = 'quality.check'
-
-    def in_progres(self):
-        for rec in self:
-            rec.write({'quality_state': "in_progress"})
 
 
 class QualityPoints(models.Model):
