@@ -181,17 +181,6 @@ class SaleOrderInherited(models.Model):
     _inherit = 'sale.order'
 
     amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
-    city_of_user = fields.Char(string="City Of User")
-
-    @api.model
-    def default_get(self, fields):
-        res = super(SaleOrderInherited, self).default_get(fields)
-        
-        # Set the domain for partner_id based on the user's city
-        if 'partner_id' in fields:
-            res['domain'] = {'partner_id': [('city', '=', self.env.user.city)]}
-        
-        return res
     @api.depends('amount_total')
     def _compute_amount_in_words(self):
         for payment in self:
