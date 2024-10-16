@@ -181,7 +181,15 @@ class SaleOrderInherited(models.Model):
     _inherit = 'sale.order'
 
     amount_in_words = fields.Char(string='Amount in Words', compute='_compute_amount_in_words')
-    
+    city_of_user = fields.Char(string="City Of User")
+
+    @api.model
+    def create(self, vals):
+        res = super().create(vals)
+        current_user = self.env.user.city
+        self['city_of_user'] = current_user
+        
+        return res
     @api.depends('amount_total')
     def _compute_amount_in_words(self):
         for payment in self:
@@ -190,23 +198,6 @@ class SaleOrderInherited(models.Model):
             else:
                 payment.amount_in_words = ''
 
-    @api.model
-    def partner(self):
-        for rec in self:
-            partner = []
-            
-            if rec.partner_id and rec.partner_id.city == self.env.user.city:
-                partner.append(rec.partner_id.id)  
-        return {
-    'domain': {
-        'partner_id': [('id', 'in', partner)]
-    }
-    }
-
-    # @api.depends_context('default_user_city')
-    # def _compute_partner_city(self):
-    #     for rec in self:
-    #         rec.partner_id = self.env['res.partner'].search([('city', '=', self.env.context.get('default_user_city'))])
 
         
 
