@@ -105,9 +105,9 @@ class PurchaseRerquestInherited(models.Model):
 class QualityCheck(models.Model):
     _inherit = 'quality.check'
 
-    def in_progress(self):
-        # for rec in self:
-            self['quality_state'] = 'in_progress'
+    def in_progres(self):
+        for rec in self:
+            rec.write({'quality_state': 'in_progress'})
 
 
 class QualityPoints(models.Model):
